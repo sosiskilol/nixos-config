@@ -10,6 +10,7 @@
             ESP = {
               size = "512M";
               type = "EF00";
+              name = "boot";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -19,6 +20,7 @@
 
             swap = {
               size = "2G";
+              name = "swap";
               content = {
                 type = "swap";
               };
