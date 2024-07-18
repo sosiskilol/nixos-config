@@ -11,21 +11,21 @@
   boot.kernelModules = [];
   boot.extraModulePackages = [];
 
-  initrd.luks.devices.cryptroot.device = "/dev/disk/by-label/root";
-
   fileSystems."/" = {
-    device = "/dev/disk/by-label/root";
+    device = "/dev/disk/by-uuid/51ecac7d-62e3-49b9-8e9d-ab30fdf35427";
     fsType = "ext4";
   };
 
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/0861c9c3-b346-4227-b993-b1ba99064339";
+
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
+    device = "/dev/disk/by-partlabel/boot";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
+    {device = "/dev/disk/by-partlabel/swap";}
   ];
 
   networking.useDHCP = lib.mkDefault true;
