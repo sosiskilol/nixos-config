@@ -10,6 +10,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
   boot.extraModulePackages = [];
+  boot.kernelParams = [ "console=tty" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/51ecac7d-62e3-49b9-8e9d-ab30fdf35427";
@@ -27,6 +28,14 @@
   swapDevices = [
     {device = "/dev/disk/by-partlabel/swap";}
   ];
+
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      editor = false;
+    };
+  };
 
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;

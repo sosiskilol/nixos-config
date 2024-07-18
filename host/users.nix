@@ -9,6 +9,7 @@
       home = "/home/arthacker";
       shell = "/bin/bash";
       uid = 1000;
+      isNormalUser = true;
     };
   };
 
