@@ -7,17 +7,19 @@
   ...
 }: {
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_scsi" "sr_mod"];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = ["virtio_gpu"];
   boot.kernelModules = [];
   boot.extraModulePackages = [];
-  boot.kernelParams = [ "console=tty" ];
+  boot.kernelParams = ["console=tty"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/51ecac7d-62e3-49b9-8e9d-ab30fdf35427";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/0861c9c3-b346-4227-b993-b1ba99064339";
+  boot.initrd = {
+    luks.devices."root".device = "/dev/disk/by-uuid/0861c9c3-b346-4227-b993-b1ba99064339";
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-partlabel/boot";
