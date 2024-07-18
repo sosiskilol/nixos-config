@@ -22,13 +22,13 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-partlabel/boot";
+    device = "/dev/disk/by-partlabel/disk-sda-boot";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-partlabel/swap";}
+    {device = "/dev/disk/by-partlabel/disk-sda-swap";}
   ];
 
   boot.loader = {
