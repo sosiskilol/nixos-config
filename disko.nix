@@ -16,14 +16,14 @@
                 mountpoint = "/boot";
               };
             };
-            
+
             swap = {
-            	size = "2G"
-            	content = {
-            		type = "swap";
-            	};
+              size = "2G";
+              content = {
+                type = "swap";
+              };
             };
-            
+
             luks = {
               size = "100%";
               content = {
